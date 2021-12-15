@@ -16,4 +16,12 @@ router.get('/json', async (ctx, next) => {
   }
 })
 
+router.get('/profile/:userName/:pageIndex', async (ctx, next) => {
+  const { userName, pageIndex } = ctx.params
+  ctx.body = {
+    userName,
+    pageIndex
+  }
+})
+
 module.exports = router
