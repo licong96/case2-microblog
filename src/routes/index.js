@@ -1,5 +1,4 @@
 const router = require('koa-router')();
-const { set, get } = require('../cache/_redis')
 
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
@@ -8,20 +7,21 @@ router.get('/', async (ctx, next) => {
 });
 
 router.get('/string', async (ctx, next) => {
-  console.log(ctx.request.header.cookie)
-  ctx.body = 'koa2 string';
+  ctx.body = {
+    title: 'koa2 string',
+  };
 });
 
 router.get('/json', async (ctx, next) => {
-  const session = ctx.session
-  console.log('session', session)
+  const session = ctx.session;
+  console.log('session', session);
   if (session.viewNum === null) {
-    session.viewNum = 0
+    session.viewNum = 0;
   }
-  session.viewNum++
+  session.viewNum++;
   ctx.body = {
     title: 'koa2 json',
-    viewNum: session.viewNum
+    viewNum: session.viewNum,
   };
 });
 
