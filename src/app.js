@@ -9,7 +9,7 @@ const session = require('koa-generic-session');
 const redisStore = require('koa-redis');
 
 const index = require('./routes/index');
-const users = require('./routes/users');
+const usersViewRouter = require('./routes/view/user');
 const errorViewRouter = require('./routes/view/error');
 
 const { SESSION_SECRET_KEY } = require('./conf/secretKeys');
@@ -60,8 +60,8 @@ app.use(
 
 // routes
 app.use(index.routes(), index.allowedMethods());
-app.use(users.routes(), users.allowedMethods());
-app.use(errorViewRouter.routes(), users.allowedMethods()); // 404路由要注册到最后面
+app.use(usersViewRouter.routes(), usersViewRouter.allowedMethods());
+app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods()); // 404路由要注册到最后面
 
 // error-handling
 app.on('error', (err, ctx) => {

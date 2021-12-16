@@ -27,13 +27,4 @@ if (isProd) {
 
 const seq = new Sequelize(database, user, password, conf);
 
-// 测试连接
-// seq.authenticate()
-// 	.then(() => {
-// 		console.log('Connection has been established successfully.');
-// 	})
-// 	.catch((error) => {
-// 		console.error('Unable to connect to the database:', error);
-// 	})
-
 module.exports = seq;
