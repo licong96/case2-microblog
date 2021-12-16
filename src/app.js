@@ -8,9 +8,14 @@ const logger = require('koa-logger');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const errorViewRouter = require('./routes/view/error');
+
+// const { isProd } = require('./utils/env');
 
 // error handler
-onerror(app);
+onerror(app, {
+  redirect: '/error'
+});
 
 // middlewares
 app.use(
@@ -39,6 +44,7 @@ app.use(
 // routes
 app.use(index.routes(), index.allowedMethods());
 app.use(users.routes(), users.allowedMethods());
+app.use(errorViewRouter.routes(), users.allowedMethods());  // 404路由要注册到最后面
 
 // error-handling
 app.on('error', (err, ctx) => {
