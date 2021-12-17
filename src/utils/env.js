@@ -1,5 +1,5 @@
 /**
- * 环境变量
+ * @description 环境变量
  */
 
 const ENV = process.env.NODE_ENV;
