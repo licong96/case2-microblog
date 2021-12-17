@@ -69,8 +69,28 @@ async function login(ctx, userName, password) {
   return new SuccessModel();
 }
 
+/**
+ * 获取用户已登录的信息
+ * @param {Object} ctx
+ * @returns {Object} data
+ */
+function getLoginInfo(ctx) {
+  let data = {
+    isLogin: false,
+  };
+  const userInfo = ctx.session.userInfo;
+  if (userInfo) {
+    data = {
+      isLogin: true,
+      userName: userInfo.userName,
+    };
+  }
+  return data;
+}
+
 module.exports = {
   isExist,
   register,
   login,
+  getLoginInfo,
 };
