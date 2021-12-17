@@ -24,7 +24,7 @@ async function getUserInfo(userName, password) {
     attributes: ['id', 'userName', 'nickName', 'picture', 'city'],
     where: whereOpt,
   });
-  if (result == null) {
+  if (result === null) {
     // 未找到
     return result;
   }
