@@ -1,5 +1,6 @@
 /**
  * sequelize 同步数据库
+ * 用node手动执行快速创建数据表，且会清空表里所有数据
  */
 
 const seq = require('./seq');
