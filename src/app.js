@@ -10,6 +10,7 @@ const session = require('koa-generic-session');
 const redisStore = require('koa-redis');
 const koaStatic = require('koa-static');
 
+const blogSquareAPIRouter = require('./routes/api/blog-square');
 const blogProfileAPIRouter = require('./routes/api/blog-profile');
 const blogHomeAPIRouter = require('./routes/api/blog-home');
 const blogViewRouter = require('./routes/view/blog');
@@ -67,6 +68,7 @@ app.use(
 );
 
 // routes
+app.use(blogSquareAPIRouter.routes(), blogSquareAPIRouter.allowedMethods());
 app.use(blogProfileAPIRouter.routes(), blogProfileAPIRouter.allowedMethods());
 app.use(blogHomeAPIRouter.routes(), blogHomeAPIRouter.allowedMethods());
 app.use(blogViewRouter.routes(), blogViewRouter.allowedMethods());
