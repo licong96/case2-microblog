@@ -1,7 +1,5 @@
 # 案例-Koa2框架生态模拟新浪微博
 
-[L206 - Node.js+Koa2框架生态实战 - 从零模拟新浪微博](https://pan.baidu.com/disk/home?#/all?vmode=list&path=%2F%E7%BC%96%E7%A8%8B%2F%E6%85%95%E8%AF%BE%E7%BD%91%E5%89%8D%E7%AB%AF%2FL206%20-%20Node.js%2BKoa2%E6%A1%86%E6%9E%B6%E7%94%9F%E6%80%81%E5%AE%9E%E6%88%98%20-%20%E4%BB%8E%E9%9B%B6%E6%A8%A1%E6%8B%9F%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%EF%BC%88%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%89%20-%20366%E5%85%83)
-
 ## 课程流程
 
 - 使用koa2脚手架工具创建项目
