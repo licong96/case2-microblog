@@ -1,12 +1,13 @@
 /**
- * 数据模型入口文件
+ * @description 数据模型入口文件
+ * @author 双越老师
  */
 
 const User = require('./User');
 const Blog = require('./Blog');
 const UserRelation = require('./UserRelation');
+const AtRelation = require('./AtRelation');
 
-// 可以通过Blog表查到User信息
 Blog.belongsTo(User, {
   foreignKey: 'userId',
 });
@@ -23,8 +24,13 @@ Blog.belongsTo(UserRelation, {
   targetKey: 'followerId',
 });
 
+Blog.hasMany(AtRelation, {
+  foreignKey: 'blogId',
+});
+
 module.exports = {
   User,
   Blog,
   UserRelation,
+  AtRelation,
 };
