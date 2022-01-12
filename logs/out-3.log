@@ -1,0 +1,34 @@
+2022-01-12 11:32:20:   <-- GET /square
+2022-01-12 11:32:21: Executing (default): SELECT count(`blog`.`id`) AS `count` FROM `blogs` AS `blog` INNER JOIN `users` AS `user` ON `blog`.`userId` = `user`.`id`;
+2022-01-12 11:32:21: Executing (default): SELECT `blog`.`id`, `blog`.`userId`, `blog`.`content`, `blog`.`image`, `blog`.`createdAt`, `blog`.`updatedAt`, `user`.`id` AS `user.id`, `user`.`userName` AS `user.userName`, `user`.`nickName` AS `user.nickName`, `user`.`picture` AS `user.picture` FROM `blogs` AS `blog` INNER JOIN `users` AS `user` ON `blog`.`userId` = `user`.`id` ORDER BY `blog`.`id` DESC LIMIT 0, 5;
+2022-01-12 11:32:21:   --> GET /square 200 123ms 7.33kb
+2022-01-12 11:32:21:   <-- GET /css/main.css
+2022-01-12 11:32:21:   <-- GET /css/list.css
+2022-01-12 11:32:21:   <-- GET /css/right.css
+2022-01-12 11:32:21:   <-- GET /javascripts/my-ajax.js
+2022-01-12 11:32:21:   --> GET /css/main.css 200 8ms 661b
+2022-01-12 11:32:21:   --> GET /css/list.css 200 7ms 548b
+2022-01-12 11:32:21:   --> GET /css/right.css 200 6ms 532b
+2022-01-12 11:32:21:   --> GET /javascripts/my-ajax.js 200 6ms 2.45kb
+2022-01-12 11:32:21:   <-- GET /javascripts/query-object.js
+2022-01-12 11:32:21:   --> GET /javascripts/query-object.js 200 2ms 8.46kb
+2022-01-12 11:32:21:   <-- GET /xxx.png
+2022-01-12 11:32:21:   --> GET /xxx.png 200 6ms 2.32kb
+2022-01-12 11:32:21:   <-- GET /favicon.ico
+2022-01-12 11:32:21:   --> GET /favicon.ico 200 9ms 2.32kb
+2022-01-12 11:32:22:   <-- GET /square
+2022-01-12 11:32:22:   --> GET /square 200 7ms 7.33kb
+2022-01-12 11:32:22:   <-- GET /css/main.css
+2022-01-12 11:32:22:   <-- GET /css/list.css
+2022-01-12 11:32:22:   <-- GET /css/right.css
+2022-01-12 11:32:22:   <-- GET /javascripts/my-ajax.js
+2022-01-12 11:32:22:   --> GET /css/main.css 200 3ms 661b
+2022-01-12 11:32:22:   --> GET /css/list.css 200 4ms 548b
+2022-01-12 11:32:22:   --> GET /css/right.css 200 3ms 532b
+2022-01-12 11:32:22:   --> GET /javascripts/my-ajax.js 200 4ms 2.45kb
+2022-01-12 11:32:22:   <-- GET /javascripts/query-object.js
+2022-01-12 11:32:22:   --> GET /javascripts/query-object.js 200 2ms 8.46kb
+2022-01-12 11:32:22:   <-- GET /xxx.png
+2022-01-12 11:32:22:   --> GET /xxx.png 200 4ms 2.32kb
+2022-01-12 11:32:22:   <-- GET /favicon.ico
+2022-01-12 11:32:22:   --> GET /favicon.ico 200 5ms 2.32kb

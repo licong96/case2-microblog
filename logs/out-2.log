@@ -1,0 +1,12 @@
+2022-01-12 11:33:47:   <-- GET /get-error
+2022-01-12 11:33:47:   xxx GET /get-error 500 13ms -
+2022-01-12 11:33:47:   <-- GET /error
+2022-01-12 11:33:47:   --> GET /error 200 10ms 2.35kb
+2022-01-12 11:33:47:   <-- GET /css/main.css
+2022-01-12 11:33:47:   <-- GET /javascripts/my-ajax.js
+2022-01-12 11:33:47:   <-- GET /javascripts/query-object.js
+2022-01-12 11:33:47:   --> GET /css/main.css 200 9ms 661b
+2022-01-12 11:33:47:   --> GET /javascripts/my-ajax.js 200 8ms 2.45kb
+2022-01-12 11:33:47:   --> GET /javascripts/query-object.js 200 6ms 8.46kb
+2022-01-12 11:33:47:   <-- GET /favicon.ico
+2022-01-12 11:33:47:   --> GET /favicon.ico 200 6ms 2.32kb
