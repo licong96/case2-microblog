@@ -1,5 +1,7 @@
 # 案例-Koa2框架生态模拟新浪微博
 
+[L206 - Node.js+Koa2框架生态实战 - 从零模拟新浪微博](https://pan.baidu.com/disk/home?#/all?vmode=list&path=%2F%E7%BC%96%E7%A8%8B%2F%E6%85%95%E8%AF%BE%E7%BD%91%E5%89%8D%E7%AB%AF%2FL206%20-%20Node.js%2BKoa2%E6%A1%86%E6%9E%B6%E7%94%9F%E6%80%81%E5%AE%9E%E6%88%98%20-%20%E4%BB%8E%E9%9B%B6%E6%A8%A1%E6%8B%9F%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%EF%BC%88%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%89%20-%20366%E5%85%83)
+
 ## 课程流程
 
 - 使用koa2脚手架工具创建项目
@@ -14,7 +16,7 @@
 - jest单元测试
 - [技术方案设计](#技术方案设计)
 - [功能列表](#功能列表)
-- 用户管理
+- [上线](#上线)
 
 ## 技术选型
 
@@ -25,6 +27,9 @@
 - 前端渲染引擎 ejs
 - 单元测试 jest
 - 数据库操作 sequelize
+- 本地开发工具 nodemon
+- 线上进程管理 PM2
+- 校验数据 json-schema ajv
 
 ## koa2路由
 
@@ -229,6 +234,10 @@ test('string 接口返回', async () => {
 - services：负责数据处理，操作数据库增删改查，数据格式化的处理
 - cache: 缓存公共的数据到redis中
 
+:::tip 注意
+`services`和`controller`模块有不同的关注点，不一定是完全对应的关系，里面的函数甚至字段名都可能不一样，`controller`关注的是业务层面，`services`关注的是数据层面。
+:::
+
 ### 页面路由和API设计
 
 routes：
@@ -356,13 +365,96 @@ routes：
 2. 开发数据模型
 3. 执行`sync.js`同步到数据库
 
-## 注意点
-
-- `services`和`controller`模块有不同的关注点，不一定是完全对应的关系，里面的函数甚至字段名都可能不一样，都有自己的关注点。
-
-
 ### 难点
 
-- 数据模型设计，关联，多表查询
+- 数据模型设计，外键关联，多表查询
 
+
+## 上线
+
+1. 线上环境
+2. 将代码部署到服务器
+3. 执行命令重启服务
+
+### 线上环境
+
+需要前端开发人员了解必要的理论和工具：
+
+- pm2配置和使用
+- 线上日志
+- nginx代理
+
+#### pm2配置和使用
+
+1. 全局安装：
+```bash
+npm install pm2 -g
+```
+
+2. 添加`pm2.conf.json`配置文件
+
+3. 修改`package.json`中配置命令，并运行：
+```bash
+# "prd": "cross-env NODE_ENV=production pm2 start pm2.conf.json"
+npm run prd
+```
+
+#### 线上日志
+
+线上记录日志，可以在代码中使用:
+```js
+console.error(ex);  // 会记录到 /logs/www-error.log 文件中
+console.log(ex);  // 会记录到 /logs/www-out.log 文件中
+```
+
+#### nginx代理
+
+- 设置反向代理
+- 重启nginx
+- 记录`access log`访问日志
+
+### 将代码部署到服务器
+
+如何部署，各个公司有不同的标准，属于团队管理的一部分。自己要去了解自己公司的部署流程。
+
+**大公司**
+
+ - 有自研上线平台，专业团队维护，制定规范，傻瓜式操作。
+ - 提交上线单，审批，检测代码，指定时间窗口发布。
+
+**中小公司**
+
+  - git服务上加`webhook`，合并分支自动触发部署
+  - 使用`pm2 deploy`工具，手动将本地代码部署到线上
+
+## 最佳实践
+
+- 项目结构
+  - 分层：`routes`、`controller`、`cache`、`services`、`db` 等
+  - 抽离中间件
+  - 抽离`utils`、`conf` 等
+  - 区分`app`和`www`
+  - 用`NODE_ENV`区分环境
+- 错误处理
+  - 规范错误数据（错误码、错误信息）
+  - 统一错误输出（error页）
+  - 对输入数据进行`schema`验证
+- 代码风格
+  - 使用`eslint`并强制`pre-commit`
+  - 使用`jsdoc`注释文件和函数
+  - 使用`async`/`await`编写异步逻辑
+  - 规范`git`分支和`commit`格式
+- 质量保证
+  - 编写单元测试
+- 安全
+  - 处理`xss`
+  - 使用`ORM`防止`sql`注入，或使用`Sequelize`
+  - 加密敏感信息
+- 线上环境
+  - 记录日志
+  - 多进程
+  - 进程守护
+  - `nginx`代理
+  - 分服务（mysql、redis）
+  - 系统监控`APM`
 

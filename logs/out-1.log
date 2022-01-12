@@ -1,0 +1,6 @@
+2022-01-12 15:10:16:   <-- GET /css/main.css
+2022-01-12 15:10:16:   <-- GET /javascripts/query-object.js
+2022-01-12 15:10:16:   --> GET /css/main.css 200 51ms 661b
+2022-01-12 15:10:16:   --> GET /javascripts/query-object.js 200 14ms 8.46kb
+2022-01-12 15:10:17:   <-- GET /favicon.ico
+2022-01-12 15:10:17:   --> GET /favicon.ico 200 36ms 2.32kb
